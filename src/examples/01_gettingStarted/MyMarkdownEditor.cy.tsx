@@ -17,7 +17,7 @@ describe('MyMarkdownEditor', () => {
         cy.get('textarea').should("have.length", 2);
 
         // Be specific about which one we want to interact with   
-        cy.get(".CodeMirror textarea").type("Hello World!");
+        cy.get(".CodeMirror textarea").type("Hello World!", {force: true});
         cy.get(".CodeMirror textarea").should("have.value", "Hello World!")
 
         // Checking that `.clear` works.

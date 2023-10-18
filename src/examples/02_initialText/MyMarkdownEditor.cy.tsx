@@ -10,13 +10,14 @@ describe('MyMarkdownEditor', () => {
 
     }); 
 
-    it("Can interact with straight css selectors - if we use force", () => {
+    it("Has initial text - cy.get", () => {
         cy.mount(<MyMarkdownEditor initialText='Foo'/>);
 
         // Note that there are two, so we can't just select it that way
         cy.get('textarea').should("have.length", 2);
 
 
+        //expected <textarea> to have value Foo, but the value was ''
         cy.get(".CodeMirror textarea").should("have.value", "Foo")
 
         cy.get(".CodeMirror textarea").clear().type("Goodbye World!", {force: true});
@@ -24,7 +25,7 @@ describe('MyMarkdownEditor', () => {
 
 
     })
-  it.only('Can find by role and type - if we use force', () => {
+  it('"Has initial text cy.findByRole', () => {
     cy.mount(<MyMarkdownEditor initialText='Foo'/>);
 
     cy.findByRole("textbox").should("have.value", "Foo")

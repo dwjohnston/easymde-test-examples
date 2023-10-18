@@ -24,7 +24,7 @@ describe('MyMarkdownEditor', () => {
 
 
     })
-  it.only('Can find by role and type - if we use force', () => {
+  it('Can find by role and type - if we use force', () => {
     cy.mount(<MyMarkdownEditor initialText='Foo'/>);
 
     cy.findByRole("textbox").should("have.value", "Foo")

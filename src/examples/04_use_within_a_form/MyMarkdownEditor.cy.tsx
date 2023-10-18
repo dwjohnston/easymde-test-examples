@@ -90,7 +90,7 @@ it('Can find by role and type - if we use force', () => {
   });
 
 
-  it.only("Initial Value + extra text works", () => {
+  it("Initial Value + extra text works", () => {
 
     const submitSpy = cy.spy().as("submitSpy");
     cy.mount(<form
@@ -198,7 +198,7 @@ it('Can find by role and type - if we use force', () => {
     cy.findByRole("textbox").should("have.value", "Hello World!")
 
     cy.findByRole("button", { name: "Reset" }).click();
-    cy.get("@resetSpy").should("have.been.calledWith", "Hello World!")
+    cy.get("@resetSpy").should("have.been.calledWith", "Hello World!Foo")
     cy.findByRole("textbox").should("not.have.text", "Hello World!")
     cy.findByRole("textbox").should("have.text", "")
 
