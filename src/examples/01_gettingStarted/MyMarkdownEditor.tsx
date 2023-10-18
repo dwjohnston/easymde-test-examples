@@ -5,19 +5,21 @@ import "easymde/dist/easymde.min.css";
 
 export function MyMarkdownEditor() {
 
-
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+    const easyMdeRef = useRef<EasyMDE | null>(null);
 
     useEffect(() => {
 
         if(!textareaRef.current){
             throw new Error("Textarea ref not found.")
         }
-        let easyMde = new EasyMDE({element: textareaRef.current});
-        return () => {
-            easyMde.toTextArea();
-            easyMde.cleanup()
+
+        // We only ever want EasyMDE to instantiate itself once.
+        // ie. We're doing this to avoid double render problems that show themselves in React 18. 
+        if(!easyMdeRef.current){
+            easyMdeRef.current= new EasyMDE({element: textareaRef.current});
         }
+
     }, [])
 
     return <textarea ref={textareaRef}/>
