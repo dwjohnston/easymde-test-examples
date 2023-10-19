@@ -126,7 +126,7 @@ it('Can find by role and type - if we use force', () => {
 
   });
 
-  it.only("Reset works - resets the text, calls reset with current value", () => {
+  it("Reset works - resets the text, calls reset with current value", () => {
 
     const submitSpy = cy.spy().as("submitSpy");
     const resetSpy = cy.spy().as("resetSpy");

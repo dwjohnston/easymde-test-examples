@@ -27,7 +27,6 @@ export function MyMarkdownEditor(props:{
             const existingStyle = easyMdeRef.current.codemirror.getInputField().getAttribute("style")
             easyMdeRef.current.codemirror.getInputField().setAttribute('style', existingStyle + `width: ${widthToBe}px; z-index:100; border: solid 1px red;`)
             easyMdeRef.current.codemirror.getInputField().value = props.initialValue ?? '';
-            console.log(easyMdeRef.current.codemirror.getInputField())
             const parent =  easyMdeRef.current.codemirror.getInputField().parentElement
             const parentStyle = parent?.getAttribute("style"); 
             parent?.setAttribute("style", parentStyle + "overflow: visible;");
